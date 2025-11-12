@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:text="test"-->
+<!--            />-->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="可用设备" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="活动连接" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/myPage1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/design_default_color_surface"
+                android:onClick="reLoad"
+                android:text="刷新设备列表"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ScrollView
+                android:id="@+id/page1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <LinearLayout
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myPage2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/toolBar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp">
+
+                <LinearLayout
+                    android:layout_width="135dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/connectName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/connectMac"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/disconnect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/smallbutton_shape"
+                    android:gravity="center"
+                    android:onClick="disconnected"
+                    android:text="断开设备"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/save_button"
+                    android:onClick="saveFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/smallbutton_shape"
+                    android:gravity="center"
+                    android:text="开始保存"
+                    android:textColor="#ffffff" />
+                <TextView
+                    android:visibility="gone"
+                    android:onClick="clearAll"
+                    android:text="清空"
+                    android:textColor="#ffffff"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/smallbutton_shape"
+                    android:gravity="center"
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"/>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/imu_logView"
+                android:textSize="8sp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+                android:textColor="#FE9900"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/logView"
+                android:textSize="8sp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+                android:textColor="#339933"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <ScrollView
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/drawMagIMU"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:background="@drawable/my_norm_border" />
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/drawAccBlueTooth"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:background="@drawable/my_norm_border" />
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/drawAsBlueTooth"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:background="@drawable/my_norm_border" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+<!--        <ScrollView-->
+<!--            android:id="@+id/scrollView"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginStart="0dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical" >-->
+<!--                -->
+<!--            </LinearLayout>-->
+<!--        </ScrollView>-->
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
