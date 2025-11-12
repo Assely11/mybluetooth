@@ -30,8 +30,17 @@ public class DrawLines {
         List<Entry> iX=new ArrayList<>();
         List<Entry> iY=new ArrayList<>();
         List<Entry> iZ=new ArrayList<>();
+
+        int N=xList.items.length;
+        if(N>yList.items.length){
+            N=yList.items.length;
+        }
+        if(N>zList.items.length){
+            N=zList.items.length;
+        }
+
         Float maxAbs=0.0f;
-        for(int i=0;i<xList.items.length;i++){
+        for(int i=0;i<N-1;i++){
             iX.add(new Entry(i,(float) xList.items[i]));
             iY.add(new Entry(i,(float) yList.items[i]));
             iZ.add(new Entry(i,(float) zList.items[i]));
@@ -112,8 +121,19 @@ public class DrawLines {
         List<Entry> iZ=new ArrayList<>();
         List<Entry> iM=new ArrayList<>();
 
+        int N=xList.items.length;
+        if(N>yList.items.length){
+            N=yList.items.length;
+        }
+        if(N>zList.items.length){
+            N=zList.items.length;
+        }
+        if(N>mList.items.length){
+            N=mList.items.length;
+        }
+
         Float maxAbs=0.0f;
-        for(int i=0;i<xList.items.length;i++){
+        for(int i=0;i<N-1;i++){
             iX.add(new Entry(i,(float) xList.items[i]));
             iY.add(new Entry(i,(float) yList.items[i]));
             iZ.add(new Entry(i,(float) zList.items[i]));
