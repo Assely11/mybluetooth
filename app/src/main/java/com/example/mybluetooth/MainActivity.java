@@ -443,7 +443,9 @@ public class MainActivity extends AppCompatActivity {
                     repetition = true;
                 }
             }
-            if (!repetition&&bluetoothDevice.getName()!=null) {
+            // if (!repetition&&bluetoothDevice.getName()!=null)
+            if(!repetition)
+            {
                 int rssi = result.getRssi();
                 LinearLayoutClass linearLayoutClass = new LinearLayoutClass(MainActivity.this, bluetoothDevice, rssi);
                 linearLayoutClass.Index = linearLayoutClasses.size();
